@@ -18,10 +18,10 @@ class SearchQuestions(APIView):
         return Response({'response': 'Search'})
 
     def post(self, request):
+        
         req_body = json.load(request)
-        base_api_url = 'https://api.stackexchange.com/2.3/search?site=stackoverflow'
-        search_string_params = ''
 
+        search_string_params = ''
         for key, value in req_body['search_params'].items():
             search_string_params += f'&{key}={value}'
 
@@ -36,4 +36,4 @@ class SearchQuestions(APIView):
             response = response.json()
             cache.set(search_string_params, response)
 
-        return Response({'response': response})
+        return Response({'data': response})

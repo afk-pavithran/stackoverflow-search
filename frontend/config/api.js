@@ -1,0 +1,1 @@
+export const SEARCH_API_ENDPOINT = '/backend_app/search/'

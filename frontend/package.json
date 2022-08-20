@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "127.0.0.1:8000",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "antd": "^4.22.6",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"

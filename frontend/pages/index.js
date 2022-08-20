@@ -1,15 +1,15 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { Search } from '../components'
+import { Layout } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
 
 function HomePage() {
   return (
-  <div>
-    <div>Stack Overflow Search Tool</div>
-    <input placeholder='search'/>
-    <br />
-    <button>Search</button>
-  </div>
+  <Layout>
+    <Search />
+  </Layout>
   )
 }
 
