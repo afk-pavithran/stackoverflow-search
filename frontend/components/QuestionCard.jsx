@@ -11,7 +11,7 @@ const QuestionCard = ({title, answer_count, question_link}) => {
                 >
                 <h5>{answer_count} Answers</h5>
                 <Button type='link'>
-                    <a target='_blank' href={question_link}>View</a>
+                    <a rel="noopener noreferrer" target='_blank' href={question_link}>View</a>
                 </Button>
             </Card>
         </div>
