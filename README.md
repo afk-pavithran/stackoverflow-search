@@ -25,7 +25,7 @@
 ### Steps to Run using Docker
 
  - cd into backend/ & frontend/ directory respectively
- - Build and Tage the docker image
+ - Build and Tag the docker image
    ```sh
     docker build -t <image-name> .
    ```
