@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.core.cache import cache
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from .throttles import UserDayThrottle, UserMinThrottle, AnonDayThrottle, AnonMinThrottle
 # Create your views here.
 
 class IndexView(APIView):
@@ -13,6 +14,9 @@ class IndexView(APIView):
 
 
 class SearchQuestions(APIView):
+
+    throttle_classes = [UserDayThrottle, UserMinThrottle, AnonDayThrottle, AnonMinThrottle]
+
     def get(self, request):
         print(request)
         return Response({'response': 'Search'})
@@ -27,7 +31,7 @@ class SearchQuestions(APIView):
 
 
         is_cached = cache.get(search_string_params)
-        print(is_cached)
+
         if is_cached: 
             response = is_cached
         else:
