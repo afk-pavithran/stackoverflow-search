@@ -12,6 +12,9 @@
 
  - cd into backend/ directory
    ```sh
+    pip install -r req.txt
+   ```
+   ```sh
     python manage.py runserver 0.0.0.0:8000
    ```
 
