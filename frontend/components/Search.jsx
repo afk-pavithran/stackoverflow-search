@@ -1,5 +1,5 @@
 import { useState } from "react"
-import {Button, Input, Pagination} from 'antd'
+import {Button, Input, Pagination, message} from 'antd'
 import { SEARCH_API_ENDPOINT } from '../config/api'
 import {QuestionCard} from '../components'
 
@@ -32,9 +32,17 @@ const Search = () => {
           },
         body: JSON.stringify(data)})
         const response = await res.json()
-        const questions = response.data.items
-        setResult(questions)
-        setTotalPage(100)
+        if (res.status == 429) {
+            message.info('Too Many Requests')
+            console.log(response)
+            setIsSearched(false)
+            return
+        }
+        if (res.status == 200) {
+            const questions = response.data.items
+            setResult(questions)
+            setTotalPage(100)
+        }
     }
 
     const paginateSearch = (page, pageSize) => {
